@@ -1,6 +1,7 @@
 import java.io.Console;
 import java.util.Arrays;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 public class PassConsole {
 	
@@ -31,7 +32,18 @@ public class PassConsole {
 			} while (noMatch);
 		}
 		
+		String op = new String(oldPassword);
+		System.out.println("oldPassword: " + op);
+		int i = 0;
+		while (i < op.length()) {
+			System.out.println("Unicode character at password position " 
+			+ i + ": "
+			+ op.codePointAt(i));
+			i++;
+		} 
 		Arrays.fill(oldPassword, ' ');
+		String op2 = new String(oldPassword);
+		System.out.println("oldPassword: " + op2 + op2.length());
 	} 
 	
 	// Dummy change method.
